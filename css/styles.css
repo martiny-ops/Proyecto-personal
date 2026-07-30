@@ -1,0 +1,12 @@
+body {
+  background-color: #541e1e;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.texto-descripcion {
+  font-size: 0.8rem;
+}
+
+.tarea-completada {
+  background-color: #e9ecef;
+}
