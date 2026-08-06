@@ -1,99 +1,174 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Planificador de Tareas</title>
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./css/styles.css">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Estilos simples -->
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
 
-  <header class="bg-dark text-white p-3 mb-4">
-    <div class="container d-flex justify-content-between align-items-center">
-      <h1 class="h5 m-0">PLANIFICADOR DE TAREAS</h1>
-    </div>
-  </header>
+<body class="bg-dark text-light">
 
-  <main class="container">
-    <div class="row g-4">
+  <div class="container py-4">
 
-      <section class="col-md-5">
-        <div class="card p-3">
-          <h2 class="h6 fw-bold mb-3">[ FORMULARIO ]</h2>
-          <form>
-            <div class="mb-2">
-              <label for="titulo" class="form-label small">Título</label>
-              <input type="text" id="titulo" class="form-control form-control-sm" placeholder="Ej. Revisar propuesta">
-            </div>
+    <h1 class="text-center mb-4 text-green">
+      <i class="bi bi-journal-check me-2"></i>Planificador de Tareas
+    </h1>
 
-            <div class="mb-2">
-              <label for="desc" class="form-label small">Descripción</label>
-              <textarea id="desc" class="form-control form-control-sm" rows="2" placeholder="Descripción breve..."></textarea>
-            </div>
+    <!-- Formulario -->
+    <div class="card mb-4 border-green">
+      <div class="card-header d-flex align-items-center gap-2">
+        <i class="bi bi-plus-circle-fill text-green"></i>
+        <h3 class="mb-0 fs-4">Nueva Tarea</h3>
+      </div>
 
-            <div class="mb-2">
-              <label for="fecha" class="form-label small">Fecha Límite</label>
-              <input type="date" id="fecha" class="form-control form-control-sm">
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label small d-block">Prioridad</label>
-              <div class="btn-group btn-group-sm w-100">
-                <input type="radio" class="btn-check" name="prio" id="p1">
-                <label class="btn btn-outline-secondary" for="p1">Alta</label>
-                <input type="radio" class="btn-check" name="prio" id="p2" checked>
-                <label class="btn btn-outline-secondary" for="p2">Media</label>
-                <input type="radio" class="btn-check" name="prio" id="p3">
-                <label class="btn btn-outline-secondary" for="p3">Baja</label>
-              </div>
-            </div>
-
-            <button type="button" class="btn btn-dark btn-sm w-100 fw-bold">+ AGREGAR TAREA</button>
-          </form>
-        </div>
-      </section>
-
-      <section class="col-md-7">
-        <div class="card p-3">
-          <h2 class="h6 fw-bold mb-3">[ LISTA DE TAREAS ]</h2>
-
-          <div class="btn-group btn-group-sm w-100 mb-3">
-            <button class="btn btn-dark">Todas</button>
-            <button class="btn btn-outline-secondary">Pendientes</button>
-            <button class="btn btn-outline-secondary">Completadas</button>
+      <div class="card-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Nombre de la tarea</label>
+            <input type="text" class="form-control" placeholder="Ingrese el nombre">
           </div>
 
-          <ul class="list-group list-group-flush border">
-            <li class="list-group-item d-flex justify-content-between align-items-start p-2">
-              <div class="d-flex gap-2">
-                <input type="checkbox" class="form-check-input mt-1">
-                <div>
-                  <strong class="d-block small">Tarea1</strong>
-                  <p class="text-muted mb-1 texto-descripcion">tarea1 en el formulario</p>
-                </div>
-              </div>
-              <button class="btn btn-sm text-danger border-0">✕</button>
-            </li>
+          <div class="mb-3">
+            <label class="form-label">Descripción</label>
+            <textarea class="form-control" rows="2" placeholder="Ingrese la descripción"></textarea>
+          </div>
 
-            <li class="list-group-item d-flex justify-content-between align-items-start p-2 tarea-completada">
-              <div class="d-flex gap-2">
-                <input type="checkbox" class="form-check-input mt-1" checked>
-                <div>
-                  <strong class="d-block small">tarea 2</strong>
-                  <span class="badge bg-light text-dark border">tarea 2 en el formulario</span>
-                </div>
-              </div>
-              <button class="btn btn-sm text-danger border-0">✕</button>
-            </li>
-          </ul>
+          <div class="row mb-3">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <label class="form-label">Fecha</label>
+              <input type="date" class="form-control">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Estado</label>
+              <select class="form-select">
+                <option value="Pendiente">Pendiente</option>
+                <option value="En progreso">En progreso</option>
+                <option value="Completada">Completada</option>
+              </select>
+            </div>
+          </div>
 
-          <div class="mt-3 text-muted small">TOTAL: 2 TAREAS</div>
+          <!-- Botón centrado -->
+          <div class="d-grid col-8 col-md-5 mx-auto">
+            <button class="btn btn-green py-2" type="button">
+              <i class="bi bi-check-lg me-1"></i>Agregar tarea
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Lista de tareas -->
+    <h2 class="mb-3 text-green">
+      <i class="bi bi-list-task me-2"></i>Mis Tareas
+    </h2>
+
+    <div class="row g-3">
+
+      <!-- Tarea 1 -->
+      <div class="col-md-6">
+        <div class="card border-green">
+          <div class="card-body">
+            <h5 class="card-title text-green">Estudiar React</h5>
+            <p class="card-text">Repasar componentes, props y hooks.</p>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <small class="text-secondary">
+                <i class="bi bi-calendar3 me-1"></i>06/08/2026
+              </small>
+              <span class="badge badge-pendiente">
+                <i class="bi bi-clock me-1"></i>Pendiente
+              </span>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
+
+      <!-- Tarea 2 -->
+      <div class="col-md-6">
+        <div class="card border-green">
+          <div class="card-body">
+            <h5 class="card-title text-green">Hacer ejercicio</h5>
+            <p class="card-text">30 minutos de cardio en el parque.</p>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <small class="text-secondary">
+                <i class="bi bi-calendar3 me-1"></i>07/08/2026
+              </small>
+              <span class="badge badge-progreso">
+                <i class="bi bi-arrow-repeat me-1"></i>En progreso
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarea 3 -->
+      <div class="col-md-6">
+        <div class="card border-green">
+          <div class="card-body">
+            <h5 class="card-title text-green">Leer un libro</h5>
+            <p class="card-text">Leer el capítulo 5 sobre arquitectura de software.</p>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <small class="text-secondary">
+                <i class="bi bi-calendar3 me-1"></i>10/08/2026
+              </small>
+              <span class="badge badge-completada">
+                <i class="bi bi-check-circle me-1"></i>Completada
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarea 4 -->
+      <div class="col-md-6">
+        <div class="card border-green">
+          <div class="card-body">
+            <h5 class="card-title text-green">Comprar mercado</h5>
+            <p class="card-text">Comprar leche, huevos, frutas y vegetales.</p>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <small class="text-secondary">
+                <i class="bi bi-calendar3 me-1"></i>08/08/2026
+              </small>
+              <span class="badge badge-pendiente">
+                <i class="bi bi-clock me-1"></i>Pendiente
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarea 5 -->
+      <div class="col-md-6">
+        <div class="card border-green">
+          <div class="card-body">
+            <h5 class="card-title text-green">Practicar Java</h5>
+            <p class="card-text">Resolver ejercicios de POO y colecciones.</p>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <small class="text-secondary">
+                <i class="bi bi-calendar3 me-1"></i>05/08/2026
+              </small>
+              <span class="badge badge-progreso">
+                <i class="bi bi-arrow-repeat me-1"></i>En progreso
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
-  </main>
+
+  </div>
 
 </body>
+
 </html>

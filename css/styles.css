@@ -1,12 +1,46 @@
+:root {
+  --green-primary: #198754;
+  --green-bright: #25c974;
+}
+
 body {
-  background-color: #541e1e;
-  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #121212;
 }
 
-.texto-descripcion {
-  font-size: 0.8rem;
+.border-green {
+  border-color: var(--green-primary) !important;
 }
 
-.tarea-completada {
-  background-color: #e9ecef;
+.text-green {
+  color: var(--green-bright) !important;
+}
+
+.btn-green {
+  background-color: var(--green-primary);
+  color: #ffffff;
+  border: none;
+}
+
+.btn-green:hover {
+  background-color: var(--green-bright);
+  color: #000000;
+}
+
+/* Badges personalizados en tonos verdes para armonizar con la paleta */
+.badge-pendiente {
+  background-color: #3d3100;
+  color: #ffe066;
+  border: 1px solid #856404;
+}
+
+.badge-progreso {
+  background-color: #0f382c;
+  color: #75b798;
+  border: 1px solid #198754;
+}
+
+.badge-completada {
+  background-color: #14452f;
+  color: #25c974;
+  border: 1px solid #25c974;
 }
