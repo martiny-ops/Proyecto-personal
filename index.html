@@ -84,100 +84,105 @@
 
     <div class="row g-3">
 
-      <!-- Tarea 1 -->
-      <div class="col-md-6">
-        <div class="card border-green">
-          <div class="card-body">
-            <h5 class="card-title text-green">Estudiar React</h5>
-            <p class="card-text">Repasar componentes, props y hooks.</p>
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <small class="text-secondary">
-                <i class="bi bi-calendar3 me-1"></i>06/08/2026
-              </small>
-              <span class="badge badge-pendiente">
-                <i class="bi bi-clock me-1"></i>Pendiente
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="row g-3">
 
-      <!-- Tarea 2 -->
-      <div class="col-md-6">
-        <div class="card border-green">
-          <div class="card-body">
-            <h5 class="card-title text-green">Hacer ejercicio</h5>
-            <p class="card-text">30 minutos de cardio en el parque.</p>
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <small class="text-secondary">
-                <i class="bi bi-calendar3 me-1"></i>07/08/2026
-              </small>
-              <span class="badge badge-progreso">
-                <i class="bi bi-arrow-repeat me-1"></i>En progreso
-              </span>
+        <!-- Tarea 1: Pendiente -->
+        <div class="col-md-6">
+          <div class="card border-pendiente">
+            <div class="card-body">
+              <h5 class="card-title text-warning fw-bold">Estudiar React</h5>
+              <p class="card-text">Repasar componentes, props y hooks.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <small class="text-secondary">
+                  <i class="bi bi-calendar3 me-1"></i>06/08/2026
+                </small>
+                <span class="badge badge-pendiente">
+                  <i class="bi bi-clock me-1"></i>Pendiente
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Tarea 3 -->
-      <div class="col-md-6">
-        <div class="card border-green">
-          <div class="card-body">
-            <h5 class="card-title text-green">Leer un libro</h5>
-            <p class="card-text">Leer el capítulo 5 sobre arquitectura de software.</p>
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <small class="text-secondary">
-                <i class="bi bi-calendar3 me-1"></i>10/08/2026
-              </small>
-              <span class="badge badge-completada">
-                <i class="bi bi-check-circle me-1"></i>Completada
-              </span>
+        <!-- Tarea 2: En progreso -->
+        <div class="col-md-6">
+          <div class="card border-progreso">
+            <div class="card-body">
+              <h5 class="card-title text-primary fw-bold">Hacer ejercicio</h5>
+              <p class="card-text">30 minutos de cardio en el parque.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <small class="text-secondary">
+                  <i class="bi bi-calendar3 me-1"></i>07/08/2026
+                </small>
+                <span class="badge badge-progreso">
+                  <i class="bi bi-arrow-repeat me-1"></i>En progreso
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Tarea 4 -->
-      <div class="col-md-6">
-        <div class="card border-green">
-          <div class="card-body">
-            <h5 class="card-title text-green">Comprar mercado</h5>
-            <p class="card-text">Comprar leche, huevos, frutas y vegetales.</p>
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <small class="text-secondary">
-                <i class="bi bi-calendar3 me-1"></i>08/08/2026
-              </small>
-              <span class="badge badge-pendiente">
-                <i class="bi bi-clock me-1"></i>Pendiente
-              </span>
+        <!-- Tarea 3: Completada -->
+        <div class="col-md-6">
+          <div class="card border-completada opacity-50">
+            <div class="card-body">
+              <h5 class="card-title text-green text-decoration-line-through fw-normal">Leer un libro</h5>
+              <p class="card-text">Leer el capítulo 5 sobre arquitectura de software.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <small class="text-secondary">
+                  <i class="bi bi-calendar3 me-1"></i>10/08/2026
+                </small>
+                <span class="badge badge-completada">
+                  <i class="bi bi-check-circle-fill me-1"></i>Completada
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Tarea 5 -->
-      <div class="col-md-6">
-        <div class="card border-green">
-          <div class="card-body">
-            <h5 class="card-title text-green">Practicar Java</h5>
-            <p class="card-text">Resolver ejercicios de POO y colecciones.</p>
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <small class="text-secondary">
-                <i class="bi bi-calendar3 me-1"></i>05/08/2026
-              </small>
-              <span class="badge badge-progreso">
-                <i class="bi bi-arrow-repeat me-1"></i>En progreso
-              </span>
+        <!-- Tarea 4: Pendiente -->
+        <div class="col-md-6">
+          <div class="card border-pendiente">
+            <div class="card-body">
+              <h5 class="card-title text-warning fw-bold">Comprar mercado</h5>
+              <p class="card-text">Comprar leche, huevos, frutas y vegetales.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <small class="text-secondary">
+                  <i class="bi bi-calendar3 me-1"></i>08/08/2026
+                </small>
+                <span class="badge badge-pendiente">
+                  <i class="bi bi-clock me-1"></i>Pendiente
+                </span>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- Tarea 5: En progreso -->
+        <div class="col-md-6">
+          <div class="card border-progreso">
+            <div class="card-body">
+              <h5 class="card-title text-primary fw-bold">Practicar Java</h5>
+              <p class="card-text">Resolver ejercicios de POO y colecciones.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <small class="text-secondary">
+                  <i class="bi bi-calendar3 me-1"></i>05/08/2026
+                </small>
+                <span class="badge badge-progreso">
+                  <i class="bi bi-arrow-repeat me-1"></i>En progreso
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
 
   </div>
-  <script src="app.js"></script>
+  <script src="/js/taskManager.js"></script>
+  <script src="/js/index.js"></script>
 </body>
 
 </html>

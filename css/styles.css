@@ -34,13 +34,48 @@ body {
 }
 
 .badge-progreso {
-  background-color: #0f382c;
-  color: #75b798;
-  border: 1px solid #198754;
+  background-color: #133d7c;
+  color: #25c974;
+  border: 1px solid #25c974;
 }
 
 .badge-completada {
   background-color: #14452f;
   color: #25c974;
   border: 1px solid #25c974;
+}
+.border-pendiente {
+  border-color: #856404 !important;
+}
+
+.border-progreso {
+  border-color: #0d6efd !important;
+}
+
+.border-completada {
+  border-color: var(--green-primary) !important;
+}
+
+
+.form-control,
+.form-select {
+  background-color: #1e262c !important;
+  color: #ffffff !important;
+  border: 1px solid #198754 !important;
+}
+
+.form-control::placeholder {
+  color: #a0aab2 !important;
+}
+
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #252f38 !important;
+  border-color: #25c974 !important; /* Borde verde brillante */
+  box-shadow: 0 0 8px rgba(37, 201, 116, 0.4) !important; /* Resplandor verde */
+}
+
+.card-header {
+  border-bottom: none !important;
 }

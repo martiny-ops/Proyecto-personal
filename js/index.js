@@ -1,3 +1,7 @@
+const taskManager = new TaskManager();
+
+console.log(taskManager.tasks);
+
 const inputNombre = document.querySelector('#nombreTarea');
 const inputDescripcion = document.querySelector('#descripcion');
 const inputFecha = document.querySelector('#fechaTarea');
@@ -57,4 +61,23 @@ btnAgregar.addEventListener('click', () => {
   if (validFormFieldInput()) {
     console.log("Formulario válido");
   }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tarjetas = document.querySelectorAll('.card');
+
+  tarjetas.forEach((card) => {
+
+    if (card.closest('#formTarea')) return;
+
+    const badge = card.querySelector('.badge');
+    if (!badge) return;
+
+    card.style.cursor = 'pointer';
+    card.style.transition = 'all 0.3s ease';
+
+    card.addEventListener('click', () => {
+      taskManager.toggleTaskStatus(card);
+    });
+  });
 });
