@@ -1,7 +1,6 @@
 const taskManager = new TaskManager();
 
-console.log(taskManager.tasks);
-
+const newTaskForm = document.querySelector('#formTarea');
 const inputNombre = document.querySelector('#nombreTarea');
 const inputDescripcion = document.querySelector('#descripcion');
 const inputFecha = document.querySelector('#fechaTarea');
@@ -57,9 +56,20 @@ function validFormFieldInput() {
   return true;
 }
 
-btnAgregar.addEventListener('click', () => {
+btnAgregar.addEventListener('click', (event) => {
+  event.preventDefault();
+
   if (validFormFieldInput()) {
-    console.log("Formulario válido");
+    const name = inputNombre.value.trim();
+    const description = inputDescripcion.value.trim();
+    const dueDate = inputFecha.value;
+    const status = selectEstado.value;
+
+    taskManager.addTask(name, description, dueDate, status);
+
+    console.log(taskManager.tasks);
+
+    newTaskForm.reset();
   }
 });
 
@@ -67,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const tarjetas = document.querySelectorAll('.card');
 
   tarjetas.forEach((card) => {
-
     if (card.closest('#formTarea')) return;
 
     const badge = card.querySelector('.badge');
