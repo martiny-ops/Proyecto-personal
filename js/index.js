@@ -1,5 +1,9 @@
 const taskManager = new TaskManager();
 
+if (typeof taskManager.load === 'function') {
+  taskManager.load();
+}
+
 const newTaskForm = document.querySelector('#formTarea');
 const inputNombre = document.querySelector('#nombreTarea');
 const inputDescripcion = document.querySelector('#descripcion');
@@ -11,16 +15,17 @@ const alertaError = document.querySelector('#alertaError');
 const mensajeError = document.querySelector('#mensajeError');
 
 function mostrarError(mensaje, elementoInput) {
+  if (!alertaError || !mensajeError) return;
   mensajeError.textContent = mensaje;
   alertaError.classList.remove('d-none');
   alertaError.classList.add('d-flex');
-
   if (elementoInput) {
     elementoInput.focus();
   }
 }
 
 function ocultarError() {
+  if (!alertaError || !mensajeError) return;
   alertaError.classList.add('d-none');
   alertaError.classList.remove('d-flex');
   mensajeError.textContent = '';
@@ -56,37 +61,57 @@ function validFormFieldInput() {
   return true;
 }
 
-btnAgregar.addEventListener('click', (event) => {
-  event.preventDefault();
+if (btnAgregar) {
+  btnAgregar.addEventListener('click', (event) => {
+    event.preventDefault();
 
-  if (validFormFieldInput()) {
-    const name = inputNombre.value.trim();
-    const description = inputDescripcion.value.trim();
-    const dueDate = inputFecha.value;
-    const status = selectEstado.value;
+    if (validFormFieldInput()) {
+      const name = inputNombre.value.trim();
+      const description = inputDescripcion.value.trim();
+      const dueDate = inputFecha.value;
+      const status = selectEstado.value;
 
-    taskManager.addTask(name, description, dueDate, status);
+      taskManager.addTask(name, description, dueDate, status);
 
-    console.log(taskManager.tasks);
+      if (typeof taskManager.save === 'function') {
+        taskManager.save();
+      }
 
-    newTaskForm.reset();
-  }
-});
+      taskManager.render();
+
+      if (newTaskForm) {
+        newTaskForm.reset();
+      }
+    }
+  });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-  const tarjetas = document.querySelectorAll('.card');
+  taskManager.render();
 
-  tarjetas.forEach((card) => {
-    if (card.closest('#formTarea')) return;
+  const tasksContainer = document.querySelector('#tasksList');
 
-    const badge = card.querySelector('.badge');
-    if (!badge) return;
+  if (tasksContainer) {
+    tasksContainer.addEventListener('click', (event) => {
+      if (event.target.classList.contains('delete-button')) {
+        const parentTask = event.target.closest('[data-task-id]');
+        if (parentTask) {
+          const taskId = Number(parentTask.dataset.taskId);
+          taskManager.deleteTask(taskId);
 
-    card.style.cursor = 'pointer';
-    card.style.transition = 'all 0.3s ease';
+          if (typeof taskManager.save === 'function') {
+            taskManager.save();
+          }
 
-    card.addEventListener('click', () => {
-      taskManager.toggleTaskStatus(card);
+          taskManager.render();
+        }
+        return;
+      }
+
+      const card = event.target.closest('.card');
+      if (card) {
+        taskManager.toggleTaskStatus(card);
+      }
     });
-  });
+  }
 });

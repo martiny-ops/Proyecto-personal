@@ -6,12 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Planificador de Tareas</title>
 
-
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
 
   <link rel="stylesheet" href="./css/styles.css">
 </head>
@@ -21,14 +20,14 @@
   <div class="container py-4">
 
     <h1 class="text-center mb-4 text-green">
-      <i class="bi bi-journal-check me-2"></i>Planificador de Tareas
+      <span class="icon-chip"><i class="bi bi-journal-check"></i></span>Planificador de Tareas
     </h1>
 
     <!-- Formulario -->
     <div class="card mb-4 border-green">
       <div class="card-header d-flex align-items-center gap-2">
-        <i class="bi bi-plus-circle-fill text-green"></i>
-        <h3 class="mb-0 fs-4">Nueva Tarea</h3>
+        <span class="icon-chip"><i class="bi bi-plus-circle-fill"></i></span>
+        <h3 class="mb-0">Nueva Tarea</h3>
       </div>
 
       <div class="card-body">
@@ -36,9 +35,7 @@
 
           <div id="alertaError" class="alert alert-danger d-none align-items-center gap-2" role="alert">
             <i class="bi bi-exclamation-triangle-fill flex-shrink-0 fs-5"></i>
-            <div id="mensajeError">
-
-            </div>
+            <div id="mensajeError"></div>
           </div>
 
           <div class="mb-3">
@@ -67,7 +64,7 @@
             </div>
           </div>
 
-          <!-- Botón agg-->
+          <!-- Botón Agregar -->
           <div class="d-grid col-8 col-md-5 mx-auto">
             <button id="btnAgregar" class="btn btn-green py-2" type="button">
               <i class="bi bi-check-lg me-1"></i>Agregar tarea
@@ -79,110 +76,17 @@
 
     <!-- Lista de tareas -->
     <h2 class="mb-3 text-green">
-      <i class="bi bi-list-task me-2"></i>Mis Tareas
+      <span class="icon-chip"><i class="bi bi-list-task"></i></span>Mis Tareas
     </h2>
 
-    <div class="row g-3">
-
-      <div class="row g-3">
-
-        <!-- Tarea 1: Pendiente -->
-        <div class="col-md-6">
-          <div class="card border-pendiente">
-            <div class="card-body">
-              <h5 class="card-title text-warning fw-bold">Estudiar React</h5>
-              <p class="card-text">Repasar componentes, props y hooks.</p>
-              <div class="d-flex justify-content-between align-items-center mt-3">
-                <small class="text-secondary">
-                  <i class="bi bi-calendar3 me-1"></i>06/08/2026
-                </small>
-                <span class="badge badge-pendiente">
-                  <i class="bi bi-clock me-1"></i>Pendiente
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tarea 2: En progreso -->
-        <div class="col-md-6">
-          <div class="card border-progreso">
-            <div class="card-body">
-              <h5 class="card-title text-primary fw-bold">Hacer ejercicio</h5>
-              <p class="card-text">30 minutos de cardio en el parque.</p>
-              <div class="d-flex justify-content-between align-items-center mt-3">
-                <small class="text-secondary">
-                  <i class="bi bi-calendar3 me-1"></i>07/08/2026
-                </small>
-                <span class="badge badge-progreso">
-                  <i class="bi bi-arrow-repeat me-1"></i>En progreso
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tarea 3: Completada -->
-        <div class="col-md-6">
-          <div class="card border-completada opacity-50">
-            <div class="card-body">
-              <h5 class="card-title text-green text-decoration-line-through fw-normal">Leer un libro</h5>
-              <p class="card-text">Leer el capítulo 5 sobre arquitectura de software.</p>
-              <div class="d-flex justify-content-between align-items-center mt-3">
-                <small class="text-secondary">
-                  <i class="bi bi-calendar3 me-1"></i>10/08/2026
-                </small>
-                <span class="badge badge-completada">
-                  <i class="bi bi-check-circle-fill me-1"></i>Completada
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tarea 4: Pendiente -->
-        <div class="col-md-6">
-          <div class="card border-pendiente">
-            <div class="card-body">
-              <h5 class="card-title text-warning fw-bold">Comprar mercado</h5>
-              <p class="card-text">Comprar leche, huevos, frutas y vegetales.</p>
-              <div class="d-flex justify-content-between align-items-center mt-3">
-                <small class="text-secondary">
-                  <i class="bi bi-calendar3 me-1"></i>08/08/2026
-                </small>
-                <span class="badge badge-pendiente">
-                  <i class="bi bi-clock me-1"></i>Pendiente
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tarea 5: En progreso -->
-        <div class="col-md-6">
-          <div class="card border-progreso">
-            <div class="card-body">
-              <h5 class="card-title text-primary fw-bold">Practicar Java</h5>
-              <p class="card-text">Resolver ejercicios de POO y colecciones.</p>
-              <div class="d-flex justify-content-between align-items-center mt-3">
-                <small class="text-secondary">
-                  <i class="bi bi-calendar3 me-1"></i>05/08/2026
-                </small>
-                <span class="badge badge-progreso">
-                  <i class="bi bi-arrow-repeat me-1"></i>En progreso
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
+    <!-- Contenedor dinámico de tareas -->
+    <div id="tasksList" class="row g-3">
     </div>
 
   </div>
-  <script src="/js/taskManager.js"></script>
-  <script src="/js/index.js"></script>
+
+  <script src="./js/taskManager.js"></script>
+  <script src="./js/index.js"></script>
 </body>
 
 </html>
