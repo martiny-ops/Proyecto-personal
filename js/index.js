@@ -93,6 +93,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (tasksContainer) {
     tasksContainer.addEventListener('click', (event) => {
+
+      // Evento para el botón "Mark As Done"
+      if (event.target.classList.contains('done-button')) {
+        const parentTask = event.target.closest('[data-task-id]');
+
+        if (parentTask) {
+          const taskId = Number(parentTask.dataset.taskId);
+          const task = taskManager.getTaskById(taskId);
+
+          if (task) {
+            task.status = 'DONE';
+
+            if (typeof taskManager.save === 'function') {
+              taskManager.save();
+            }
+
+            taskManager.render();
+          }
+        }
+        return;
+      }
+
+      // Evento para el botón "Eliminar"
       if (event.target.classList.contains('delete-button')) {
         const parentTask = event.target.closest('[data-task-id]');
         if (parentTask) {
@@ -106,11 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
           taskManager.render();
         }
         return;
-      }
-
-      const card = event.target.closest('.card');
-      if (card) {
-        taskManager.toggleTaskStatus(card);
       }
     });
   }

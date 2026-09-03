@@ -10,7 +10,7 @@ const createTaskHtml = (id, name, description, dueDate, status) => {
     titleClass = 'text-primary fw-bold';
     badgeClass = 'badge-progreso';
     badgeIcon = 'bi-arrow-repeat';
-  } else if (status === 'Completada') {
+  } else if (status === 'Completada' || status === 'DONE') {
     borderClass = 'border-completada';
     titleClass = 'text-green text-decoration-line-through fw-normal';
     badgeClass = 'badge-completada';
@@ -32,7 +32,10 @@ const createTaskHtml = (id, name, description, dueDate, status) => {
                         <i class="bi ${badgeIcon} me-1"></i>${status}
                     </span>
                 </div>
-                <div class="d-flex justify-content-end mt-3">
+                <div class="d-flex justify-content-end gap-2 mt-3">
+                    <button class="btn btn-success done-button btn-sm">
+                        Mark As Done
+                    </button>
                     <button class="btn btn-danger delete-button btn-sm">
                         Eliminar
                     </button>
@@ -58,6 +61,18 @@ class TaskManager {
       dueDate: dueDate,
       status: status || 'Pendiente'
     });
+  }
+
+  getTaskById(taskId) {
+    let foundTask;
+
+    for (let task of this.tasks) {
+      if (task.id === taskId) {
+        foundTask = task;
+      }
+    }
+
+    return foundTask;
   }
 
   deleteTask(taskId) {
