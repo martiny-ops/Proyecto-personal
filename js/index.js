@@ -8,7 +8,6 @@ const newTaskForm = document.querySelector('#formTarea');
 const inputNombre = document.querySelector('#nombreTarea');
 const inputDescripcion = document.querySelector('#descripcion');
 const inputFecha = document.querySelector('#fechaTarea');
-const selectEstado = document.querySelector('#estadoTarea');
 const btnAgregar = document.querySelector('#btnAgregar');
 
 const alertaError = document.querySelector('#alertaError');
@@ -35,7 +34,6 @@ function validFormFieldInput() {
   const nombreTarea = inputNombre.value.trim();
   const descripcion = inputDescripcion.value.trim();
   const fecha = inputFecha.value;
-  const estado = selectEstado.value;
 
   if (nombreTarea === "") {
     mostrarError("Por favor, ingrese el nombre de la tarea.", inputNombre);
@@ -52,11 +50,6 @@ function validFormFieldInput() {
     return false;
   }
 
-  if (estado === "" || estado === "Seleccione un estado") {
-    mostrarError("Por favor, seleccione un estado.", selectEstado);
-    return false;
-  }
-
   ocultarError();
   return true;
 }
@@ -69,9 +62,8 @@ if (btnAgregar) {
       const name = inputNombre.value.trim();
       const description = inputDescripcion.value.trim();
       const dueDate = inputFecha.value;
-      const status = selectEstado.value;
 
-      taskManager.addTask(name, description, dueDate, status);
+      taskManager.addTask(name, description, dueDate);
 
       if (typeof taskManager.save === 'function') {
         taskManager.save();
@@ -94,8 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (tasksContainer) {
     tasksContainer.addEventListener('click', (event) => {
 
-      // Evento para el botón "Mark As Done"
-      if (event.target.classList.contains('done-button')) {
+      // Cambiar estado cíclico al hacer clic en el botón de estado
+      if (event.target.classList.contains('status-button')) {
         const parentTask = event.target.closest('[data-task-id]');
 
         if (parentTask) {
@@ -103,7 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
           const task = taskManager.getTaskById(taskId);
 
           if (task) {
-            task.status = 'DONE';
+            // Ciclo: Pendiente -> En progreso -> Completada -> Pendiente
+            if (task.status === 'Pendiente') {
+              task.status = 'En progreso';
+            } else if (task.status === 'En progreso') {
+              task.status = 'Completada';
+            } else {
+              task.status = 'Pendiente';
+            }
 
             if (typeof taskManager.save === 'function') {
               taskManager.save();
