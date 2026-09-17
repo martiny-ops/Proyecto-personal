@@ -13,6 +13,19 @@ const btnAgregar = document.querySelector('#btnAgregar');
 const alertaError = document.querySelector('#alertaError');
 const mensajeError = document.querySelector('#mensajeError');
 
+if (inputFecha) {
+  const abrirCalendario = () => {
+    if (typeof inputFecha.showPicker === 'function') {
+      try {
+        inputFecha.showPicker();
+      } catch (error) {
+      }
+    }
+  };
+
+  inputFecha.addEventListener('click', abrirCalendario);
+}
+
 function mostrarError(mensaje, elementoInput) {
   if (!alertaError || !mensajeError) return;
   mensajeError.textContent = mensaje;
@@ -86,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (tasksContainer) {
     tasksContainer.addEventListener('click', (event) => {
 
-      // Cambiar estado cíclico al hacer clic en el botón de estado
       if (event.target.classList.contains('status-button')) {
         const parentTask = event.target.closest('[data-task-id]');
 
@@ -95,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
           const task = taskManager.getTaskById(taskId);
 
           if (task) {
-            // Ciclo: Pendiente -> En progreso -> Completada -> Pendiente
             if (task.status === 'Pendiente') {
               task.status = 'En progreso';
             } else if (task.status === 'En progreso') {
@@ -114,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Evento para el botón "Eliminar"
       if (event.target.classList.contains('delete-button')) {
         const parentTask = event.target.closest('[data-task-id]');
         if (parentTask) {
